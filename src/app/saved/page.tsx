@@ -7,13 +7,6 @@ import {
   Bookmark, 
   Trash2, 
   ExternalLink, 
-  MapPin, 
-  CheckCircle, 
-  Clock, 
-  XCircle, 
-  Send, 
-  Award,
-  Sparkles
 } from "lucide-react";
 import Link from "next/link";
 
@@ -107,32 +100,32 @@ export default function SavedJobsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Bookmark className="w-5 h-5 text-emerald-400" />
-            <h1 className="text-2xl font-bold font-mono text-zinc-100">Saved Jobs Tracker</h1>
+            <Bookmark className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <h1 className="text-2xl font-bold font-mono text-zinc-900 dark:text-zinc-100">Saved Jobs Tracker</h1>
           </div>
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-zinc-600 dark:text-zinc-400">
             Track your discovered opportunities, manage active applications, and monitor status updates.
           </p>
         </div>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs font-mono text-zinc-300"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-300 shadow-sm"
         >
           <span>Find more jobs</span>
         </Link>
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-zinc-800 pb-3 mb-6 overflow-x-auto text-xs font-mono">
+      <div className="flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-3 mb-6 overflow-x-auto text-xs font-mono">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`px-3 py-1.5 rounded-lg border transition-colors whitespace-nowrap ${
               activeTab === tab.id
-                ? "bg-zinc-800 border-zinc-700 text-emerald-400 font-bold"
-                : "bg-zinc-900/60 border-zinc-800/80 text-zinc-400 hover:text-zinc-200"
+                ? "bg-zinc-200 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-emerald-700 dark:text-emerald-400 font-bold"
+                : "bg-white dark:bg-zinc-900/60 border-zinc-200 dark:border-zinc-800/80 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
             }`}
           >
             {tab.label}
@@ -144,13 +137,13 @@ export default function SavedJobsPage() {
       {isLoading ? (
         <div className="text-center py-12 text-xs font-mono text-zinc-500">Loading saved jobs...</div>
       ) : filteredJobs.length === 0 ? (
-        <div className="text-center py-16 rounded-2xl bg-zinc-950 border border-zinc-800">
-          <Bookmark className="w-8 h-8 text-zinc-600 mx-auto mb-3" />
-          <h3 className="text-sm font-mono font-bold text-zinc-300 mb-1">No saved jobs in this category</h3>
+        <div className="text-center py-16 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+          <Bookmark className="w-8 h-8 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
+          <h3 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-300 mb-1">No saved jobs in this category</h3>
           <p className="text-xs text-zinc-500 mb-4">Click the bookmark icon on any job card to track it here.</p>
           <Link
             href="/"
-            className="inline-flex px-4 py-2 rounded-lg bg-emerald-500 text-zinc-950 text-xs font-bold font-mono"
+            className="inline-flex px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold font-mono shadow-sm"
           >
             Explore Live Feed
           </Link>
@@ -165,10 +158,10 @@ export default function SavedJobsPage() {
             return (
               <div
                 key={record.id}
-                className="p-4 sm:p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-zinc-700 transition-colors"
+                className="p-4 sm:p-5 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-sm"
               >
                 <div className="flex items-start gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center font-mono font-bold text-xs text-zinc-300 flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center font-mono font-bold text-xs text-zinc-700 dark:text-zinc-300 flex-shrink-0">
                     {job.companyName.slice(0, 2).toUpperCase()}
                   </div>
 
@@ -176,23 +169,23 @@ export default function SavedJobsPage() {
                     <div className="flex items-center gap-2">
                       <Link
                         href={`/jobs/${job.id}`}
-                        className="text-sm font-semibold text-zinc-100 hover:text-emerald-400 font-mono truncate"
+                        className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 font-mono truncate"
                       >
                         {job.title}
                       </Link>
                       {isClosed && (
-                        <span className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800">
+                        <span className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-400 border border-rose-300 dark:border-rose-800">
                           CLOSED
                         </span>
                       )}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-zinc-400">
-                      <span className="text-zinc-300 font-medium">{job.companyName}</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-zinc-600 dark:text-zinc-400">
+                      <span className="text-zinc-800 dark:text-zinc-300 font-medium">{job.companyName}</span>
                       <span>•</span>
                       <span>{job.location}</span>
                       <span>•</span>
-                      <span className="text-emerald-400 font-mono">{salary}</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-mono">{salary}</span>
                       <span>•</span>
                       <span className="text-zinc-500">Saved {formatRelativeTime(record.savedAt)}</span>
                     </div>
@@ -200,7 +193,7 @@ export default function SavedJobsPage() {
                     {job.skills && job.skills.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-2">
                         {job.skills.slice(0, 4).map((s) => (
-                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-800 text-zinc-300 border border-zinc-700">
+                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
                             {s}
                           </span>
                         ))}
@@ -214,7 +207,7 @@ export default function SavedJobsPage() {
                   <select
                     value={record.status}
                     onChange={(e) => handleUpdateStatus(record.id, job.id, e.target.value)}
-                    className="bg-zinc-800 border border-zinc-700 rounded px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-600 text-xs"
+                    className="bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded px-2.5 py-1.5 text-zinc-800 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 text-xs"
                   >
                     <option value="SAVED">Saved</option>
                     <option value="APPLIED">Applied</option>
@@ -227,7 +220,7 @@ export default function SavedJobsPage() {
                     href={job.applyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 hover:text-white"
+                    className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white transition-colors"
                     title="Apply link"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -235,7 +228,7 @@ export default function SavedJobsPage() {
 
                   <button
                     onClick={() => handleDelete(record.id)}
-                    className="p-1.5 rounded-lg bg-zinc-800/60 hover:bg-rose-950/80 border border-zinc-700 hover:border-rose-800 text-zinc-400 hover:text-rose-400"
+                    className="p-1.5 rounded-lg bg-zinc-100 hover:bg-rose-50 dark:bg-zinc-800/60 dark:hover:bg-rose-950/80 border border-zinc-200 hover:border-rose-300 dark:border-zinc-700 dark:hover:border-rose-800 text-zinc-500 hover:text-rose-600 dark:text-zinc-400 dark:hover:text-rose-400 transition-colors"
                     title="Remove from saved"
                   >
                     <Trash2 className="w-4 h-4" />

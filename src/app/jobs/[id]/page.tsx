@@ -6,13 +6,10 @@ import { formatRelativeTime, calculateFreshness } from "@/lib/freshness";
 import { 
   ArrowLeft, 
   MapPin, 
-  Briefcase, 
-  Home, 
   ExternalLink, 
   ShieldCheck, 
   Layers, 
   Sparkles, 
-  CheckCircle2,
   Ban
 } from "lucide-react";
 
@@ -66,7 +63,7 @@ export default async function JobDetailPage({
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-emerald-400 mb-6 transition-colors"
+        className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-emerald-600 dark:text-zinc-400 dark:hover:text-emerald-400 mb-6 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Live Job Feed</span>
@@ -74,34 +71,34 @@ export default async function JobDetailPage({
 
       {/* Closed Banner */}
       {isClosed && (
-        <div className="flex items-center gap-2 px-4 py-3 mb-6 rounded-xl bg-rose-950/80 border border-rose-800 text-rose-300 text-xs font-semibold">
-          <Ban className="w-4 h-4 text-rose-400" />
+        <div className="flex items-center gap-2 px-4 py-3 mb-6 rounded-xl bg-rose-50 dark:bg-rose-950/80 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-xs font-semibold">
+          <Ban className="w-4 h-4 text-rose-500 dark:text-rose-400" />
           <span>This job has just closed and was removed from your results.</span>
         </div>
       )}
 
       {/* Main Job Card */}
-      <div className="rounded-2xl bg-zinc-950 border border-zinc-800/80 p-6 sm:p-8 shadow-2xl">
+      <div className="rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800/80 p-6 sm:p-8 shadow-2xl transition-colors duration-150">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-zinc-800">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <h1 className="text-2xl font-bold font-mono text-zinc-100">{job.title}</h1>
+              <h1 className="text-2xl font-bold font-mono text-zinc-900 dark:text-zinc-100">{job.title}</h1>
               {job.isDemo && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-800 text-zinc-400 border border-zinc-700">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700">
                   DEMO DATA
                 </span>
               )}
             </div>
-            <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-400">
-              <span className="text-zinc-200 font-semibold text-sm">{job.companyName}</span>
+            <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-600 dark:text-zinc-400">
+              <span className="text-zinc-800 dark:text-zinc-200 font-semibold text-sm">{job.companyName}</span>
               <span>•</span>
               <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                <MapPin className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
                 {job.location}
               </span>
               <span>•</span>
-              <span className="text-emerald-400 font-mono font-medium">{salaryDisplay}</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-mono font-medium">{salaryDisplay}</span>
             </div>
           </div>
 
@@ -113,9 +110,9 @@ export default async function JobDetailPage({
         </div>
 
         {/* Telemetry Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 my-4 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 text-xs font-mono text-zinc-400">
+        <div className="flex flex-wrap items-center justify-between gap-3 my-4 p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-600 dark:text-zinc-400">
           <div>Discovered: {formatRelativeTime(job.discoveredAt)}</div>
-          <div className="flex items-center gap-1.5 text-emerald-400">
+          <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Verified Active Feed</span>
           </div>
@@ -123,8 +120,8 @@ export default async function JobDetailPage({
 
         {/* Canonical Sources */}
         {sourcesList.length > 0 && (
-          <div className="my-5 p-4 rounded-xl bg-zinc-900/40 border border-zinc-800">
-            <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold mb-2">
+          <div className="my-5 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800">
+            <div className="flex items-center gap-2 text-xs font-mono text-cyan-600 dark:text-cyan-400 font-bold mb-2">
               <Layers className="w-4 h-4" />
               <span>Discovered on {sourcesList.length} distinct source(s)</span>
             </div>
@@ -135,10 +132,10 @@ export default async function JobDetailPage({
                   href={src.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-700 text-xs transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-700 text-xs transition-colors shadow-sm"
                 >
                   <span>{src.name}</span>
-                  <ExternalLink className="w-3 h-3 text-zinc-400" />
+                  <ExternalLink className="w-3 h-3 text-zinc-400 dark:text-zinc-500" />
                 </a>
               ))}
             </div>
@@ -147,22 +144,22 @@ export default async function JobDetailPage({
 
         {/* AI Summary */}
         {job.aiSummary && (
-          <div className="my-6 p-4 rounded-xl bg-zinc-900/80 border border-emerald-500/20">
-            <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold mb-2">
+          <div className="my-6 p-4 rounded-xl bg-emerald-50/50 dark:bg-zinc-900/80 border border-emerald-500/20">
+            <div className="flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold mb-2">
               <Sparkles className="w-4 h-4" />
               <span>AI Job Summary</span>
             </div>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">{job.aiSummary}</p>
+            <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">{job.aiSummary}</p>
           </div>
         )}
 
         {/* Skills */}
         {skills.length > 0 && (
           <div className="my-6">
-            <h3 className="text-xs font-mono uppercase text-zinc-400 font-bold mb-2">Required Skills</h3>
+            <h3 className="text-xs font-mono uppercase text-zinc-500 dark:text-zinc-400 font-bold mb-2">Required Skills</h3>
             <div className="flex flex-wrap gap-1.5">
               {skills.map((s) => (
-                <span key={s} className="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-200">
+                <span key={s} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-800 dark:text-zinc-200">
                   {s}
                 </span>
               ))}
@@ -172,17 +169,53 @@ export default async function JobDetailPage({
 
         {/* Description */}
         <div className="my-6">
-          <h3 className="text-xs font-mono uppercase text-zinc-400 font-bold mb-2">Role Overview</h3>
-          <p className="text-xs sm:text-sm text-zinc-300 whitespace-pre-line leading-relaxed bg-zinc-900/20 p-4 rounded-xl border border-zinc-800/60">
+          <h3 className="text-xs font-mono uppercase text-zinc-500 dark:text-zinc-400 font-bold mb-2">Role Overview</h3>
+          <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 whitespace-pre-line leading-relaxed bg-zinc-50 dark:bg-zinc-900/20 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/60">
             {job.description}
           </p>
         </div>
 
+        {/* Responsibilities */}
+        {responsibilities.length > 0 && (
+          <div className="my-6">
+            <h3 className="text-xs font-mono uppercase text-zinc-500 dark:text-zinc-400 font-bold mb-2">Key Responsibilities</h3>
+            <ul className="space-y-1.5 list-disc list-inside text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+              {responsibilities.map((r, i) => (
+                <li key={i}>{r}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Requirements */}
+        {requirements.length > 0 && (
+          <div className="my-6">
+            <h3 className="text-xs font-mono uppercase text-zinc-500 dark:text-zinc-400 font-bold mb-2">Requirements</h3>
+            <ul className="space-y-1.5 list-disc list-inside text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+              {requirements.map((r, i) => (
+                <li key={i}>{r}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Benefits */}
+        {benefits.length > 0 && (
+          <div className="my-6">
+            <h3 className="text-xs font-mono uppercase text-zinc-500 dark:text-zinc-400 font-bold mb-2">Benefits</h3>
+            <ul className="space-y-1.5 list-disc list-inside text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+              {benefits.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* Action Buttons */}
-        <div className="pt-6 border-t border-zinc-800 flex items-center justify-between gap-4">
+        <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-4">
           <Link
             href="/"
-            className="px-4 py-2 rounded-lg bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium"
+            className="px-4 py-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white text-xs font-medium border border-zinc-200 dark:border-zinc-700"
           >
             Explore More Jobs
           </Link>
@@ -190,7 +223,7 @@ export default async function JobDetailPage({
           {isClosed ? (
             <button
               disabled
-              className="px-6 py-2.5 rounded-lg bg-zinc-800 text-zinc-500 text-xs font-bold cursor-not-allowed"
+              className="px-6 py-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs font-bold cursor-not-allowed border border-zinc-200 dark:border-zinc-700"
             >
               This job is no longer available
             </button>

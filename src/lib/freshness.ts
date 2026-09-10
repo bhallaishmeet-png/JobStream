@@ -20,7 +20,7 @@ export function calculateFreshness(dateInput: string | Date | number): Freshness
       score: 99,
       emoji: "",
       badgeColor: "bg-orange-500/10 border-orange-500/30",
-      textColor: "text-orange-400",
+      textColor: "text-orange-600 dark:text-orange-400",
       label: "Just now",
     };
   } else if (diffMin < 5) {
@@ -28,7 +28,7 @@ export function calculateFreshness(dateInput: string | Date | number): Freshness
       score: 96,
       emoji: "",
       badgeColor: "bg-orange-500/10 border-orange-500/30",
-      textColor: "text-orange-400",
+      textColor: "text-orange-600 dark:text-orange-400",
       label: `${diffMin}m ago`,
     };
   } else if (diffMin < 30) {
@@ -36,7 +36,7 @@ export function calculateFreshness(dateInput: string | Date | number): Freshness
       score: 85,
       emoji: "",
       badgeColor: "bg-amber-500/10 border-amber-500/30",
-      textColor: "text-amber-400",
+      textColor: "text-amber-600 dark:text-amber-400",
       label: `${diffMin}m ago`,
     };
   } else if (diffHours < 3) {
@@ -44,31 +44,31 @@ export function calculateFreshness(dateInput: string | Date | number): Freshness
       score: 65,
       emoji: "",
       badgeColor: "bg-amber-500/10 border-amber-500/30",
-      textColor: "text-amber-400",
+      textColor: "text-amber-600 dark:text-amber-400",
       label: `${diffHours}h ago`,
     };
   } else if (diffHours < 24) {
     return {
       score: 50,
       emoji: "",
-      badgeColor: "bg-zinc-800 border-zinc-700",
-      textColor: "text-zinc-300",
+      badgeColor: "bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700",
+      textColor: "text-zinc-700 dark:text-zinc-300",
       label: `${diffHours}h ago`,
     };
   } else if (diffDays < 7) {
     return {
       score: 30,
       emoji: "",
-      badgeColor: "bg-zinc-800 border-zinc-700",
-      textColor: "text-zinc-400",
+      badgeColor: "bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700",
+      textColor: "text-zinc-600 dark:text-zinc-400",
       label: `${diffDays}d ago`,
     };
   } else {
     return {
       score: 15,
       emoji: "",
-      badgeColor: "bg-zinc-800 border-zinc-700",
-      textColor: "text-zinc-500",
+      badgeColor: "bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700",
+      textColor: "text-zinc-500 dark:text-zinc-500",
       label: `${diffDays}d ago`,
     };
   }

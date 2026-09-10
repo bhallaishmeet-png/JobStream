@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { RefreshCw, Zap } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 
 interface LiveStatusBarProps {
   lastUpdated: Date;
@@ -39,10 +39,10 @@ export function LiveStatusBar({
   }, [lastUpdated, refreshIntervalSeconds, onRefresh, isRefreshing]);
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-zinc-900/90 border border-zinc-800/80 shadow-sm font-mono text-xs">
+    <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800/80 shadow-sm font-mono text-xs transition-colors duration-150">
       <div className="flex items-center gap-3">
         {/* Pulsing Green LIVE indicator */}
-        <div className="flex items-center gap-2 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold tracking-wider">
+        <div className="flex items-center gap-2 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-bold tracking-wider">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -51,18 +51,18 @@ export function LiveStatusBar({
         </div>
 
         {/* Dynamic Relative Timestamps */}
-        <div className="flex items-center gap-1.5 text-zinc-300">
-          <span className="text-zinc-400">Last updated:</span>
-          <span className="text-zinc-100 font-semibold">
+        <div className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300">
+          <span className="text-zinc-500 dark:text-zinc-400">Last updated:</span>
+          <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
             {secondsAgo === 0 ? "Just now" : `${secondsAgo} seconds ago`}
           </span>
         </div>
 
-        <span className="hidden sm:inline text-zinc-600">•</span>
+        <span className="hidden sm:inline text-zinc-300 dark:text-zinc-600">•</span>
 
-        <div className="hidden sm:flex items-center gap-1.5 text-zinc-400">
+        <div className="hidden sm:flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400">
           <span>Next update in:</span>
-          <span className="text-emerald-400 font-semibold">{secondsLeft}s</span>
+          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{secondsLeft}s</span>
         </div>
       </div>
 
@@ -70,10 +70,10 @@ export function LiveStatusBar({
       <button
         onClick={onRefresh}
         disabled={isRefreshing}
-        className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700/80 transition-colors disabled:opacity-50"
+        className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white border border-zinc-200 dark:border-zinc-700/80 transition-colors disabled:opacity-50"
         title="Check for new updates now"
       >
-        <RefreshCw className={`w-3 h-3 text-emerald-400 ${isRefreshing ? "animate-spin" : ""}`} />
+        <RefreshCw className={`w-3 h-3 text-emerald-600 dark:text-emerald-400 ${isRefreshing ? "animate-spin" : ""}`} />
         <span className="hidden md:inline">Check Now</span>
       </button>
     </div>
