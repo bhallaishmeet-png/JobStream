@@ -137,13 +137,13 @@ export default function SavedJobsPage() {
       {isLoading ? (
         <div className="text-center py-12 text-xs font-mono text-zinc-500">Loading saved jobs...</div>
       ) : filteredJobs.length === 0 ? (
-        <div className="text-center py-16 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+        <div className="text-center py-16 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <Bookmark className="w-8 h-8 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
           <h3 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-300 mb-1">No saved jobs in this category</h3>
           <p className="text-xs text-zinc-500 mb-4">Click the bookmark icon on any job card to track it here.</p>
           <Link
             href="/"
-            className="inline-flex px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold font-mono shadow-sm"
+            className="inline-flex px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 text-xs font-semibold font-mono shadow-sm transition-colors"
           >
             Explore Live Feed
           </Link>
@@ -174,7 +174,7 @@ export default function SavedJobsPage() {
                         {job.title}
                       </Link>
                       {isClosed && (
-                        <span className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-400 border border-rose-300 dark:border-rose-800">
+                        <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-400 border border-rose-300 dark:border-rose-800">
                           CLOSED
                         </span>
                       )}
@@ -182,18 +182,18 @@ export default function SavedJobsPage() {
 
                     <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-zinc-600 dark:text-zinc-400">
                       <span className="text-zinc-800 dark:text-zinc-300 font-medium">{job.companyName}</span>
-                      <span>•</span>
+                      <span>·</span>
                       <span>{job.location}</span>
-                      <span>•</span>
+                      <span>·</span>
                       <span className="text-emerald-600 dark:text-emerald-400 font-mono">{salary}</span>
-                      <span>•</span>
+                      <span>·</span>
                       <span className="text-zinc-500">Saved {formatRelativeTime(record.savedAt)}</span>
                     </div>
 
                     {job.skills && job.skills.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-2">
                         {job.skills.slice(0, 4).map((s) => (
-                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+                          <span key={s} className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
                             {s}
                           </span>
                         ))}
@@ -207,7 +207,7 @@ export default function SavedJobsPage() {
                   <select
                     value={record.status}
                     onChange={(e) => handleUpdateStatus(record.id, job.id, e.target.value)}
-                    className="bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded px-2.5 py-1.5 text-zinc-800 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 text-xs"
+                    className="bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg px-2.5 py-1.5 text-zinc-800 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 text-xs"
                   >
                     <option value="SAVED">Saved</option>
                     <option value="APPLIED">Applied</option>
