@@ -365,7 +365,7 @@ export function JobDetailModal({
                 href={currentJob.applyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold shadow-lg shadow-emerald-500/20 transition-all"
+                className="flex items-center gap-2 px-5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold shadow-sm transition-all"
               >
                 <span>Apply on {currentJob.sourceName}</span>
                 <ExternalLink className="w-3.5 h-3.5" />

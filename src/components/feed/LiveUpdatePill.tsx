@@ -23,7 +23,7 @@ export function LiveUpdatePill({
 
   return (
     <div className="sticky top-20 z-30 flex items-center justify-center my-3 animate-slide-down">
-      <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-zinc-900/95 border border-emerald-500/50 shadow-lg shadow-emerald-500/10 backdrop-blur-md text-xs font-mono">
+      <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-zinc-900/95 border border-emerald-500/50 shadow-md backdrop-blur-md text-xs font-mono">
         <div className="flex items-center gap-2 text-zinc-200">
           {newCount > 0 && (
             <span className="flex items-center gap-1 text-emerald-400 font-bold">

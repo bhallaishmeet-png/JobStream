@@ -199,7 +199,7 @@ export default async function JobDetailPage({
               href={job.applyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold shadow-lg shadow-emerald-500/20 transition-all"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold shadow-sm transition-all"
             >
               <span>Apply Directly on {job.sourceName}</span>
               <ExternalLink className="w-4 h-4" />

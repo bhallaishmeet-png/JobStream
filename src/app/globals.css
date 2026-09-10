@@ -33,17 +33,3 @@ body {
   background: #3f3f46;
 }
 
-/* Subtle dot matrix grid background */
-.terminal-grid {
-  background-size: 32px 32px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-/* Live stream glow */
-.stream-pulse {
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
-}
-
-.flame-glow {
-  box-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
-}
