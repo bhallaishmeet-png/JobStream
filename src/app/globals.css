@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
+  --background: #fafafa;
   --foreground: #09090b;
   --card: #ffffff;
-  --card-border: #e2e8f0;
-  --muted: #64748b;
+  --card-border: #e4e4e7;
+  --muted: #71717a;
 }
 
 .dark {
   --background: #09090b;
-  --foreground: #f4f4f5;
+  --foreground: #fafafa;
   --card: #121215;
   --card-border: #27272a;
   --muted: #a1a1aa;
@@ -23,25 +23,28 @@ body {
   color: var(--foreground);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Bloomberg/Linear scrollbar */
+/* Restrained, precision scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+  background: #d4d4d8;
+  border-radius: 2px;
 }
 .dark ::-webkit-scrollbar-thumb {
   background: #27272a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #a1a1aa;
 }
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;

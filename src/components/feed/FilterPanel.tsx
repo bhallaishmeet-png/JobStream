@@ -146,7 +146,7 @@ export function FilterPanel({
                 key={loc}
                 type="button"
                 onClick={() => toggleArrayItem("locations", loc)}
-                className={`px-2 py-1 rounded text-[11px] border transition-colors ${
+                className={`px-2 py-1 rounded-md text-[11px] border transition-colors ${
                   isSelected
                     ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
@@ -165,11 +165,11 @@ export function FilterPanel({
             placeholder="Add custom city..."
             value={customLocInput}
             onChange={(e) => setCustomLocInput(e.target.value)}
-            className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded px-2.5 py-1 text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono"
+            className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg px-2.5 py-1 text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono text-xs"
           />
           <button
             type="submit"
-            className="px-2 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
+            className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
           >
             <Plus className="w-3.5 h-3.5" />
           </button>
@@ -189,7 +189,7 @@ export function FilterPanel({
                 key={exp.id}
                 type="button"
                 onClick={() => toggleArrayItem("experienceLevels", exp.id)}
-                className={`px-2.5 py-1.5 rounded text-[11px] text-left border transition-colors ${
+                className={`px-2.5 py-1.5 rounded-md text-[11px] text-left border transition-colors ${
                   isSelected
                     ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
@@ -215,7 +215,7 @@ export function FilterPanel({
                 key={mode.id}
                 type="button"
                 onClick={() => toggleArrayItem("workModes", mode.id)}
-                className={`flex-1 py-1.5 rounded text-[11px] text-center border transition-colors ${
+                className={`flex-1 py-1.5 rounded-md text-[11px] text-center border transition-colors ${
                   isSelected
                     ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
@@ -241,7 +241,7 @@ export function FilterPanel({
                 key={type.id}
                 type="button"
                 onClick={() => toggleArrayItem("jobTypes", type.id)}
-                className={`px-2.5 py-1 rounded text-[11px] border transition-colors ${
+                className={`px-2.5 py-1 rounded-md text-[11px] border transition-colors ${
                   isSelected
                     ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
@@ -272,7 +272,7 @@ export function FilterPanel({
                     page: 1,
                   })
                 }
-                className={`px-2 py-1 rounded text-[11px] border transition-colors ${
+                className={`px-2 py-1 rounded-md text-[11px] border transition-colors ${
                   isSelected
                     ? "bg-orange-500/15 border-orange-500/80 text-orange-700 dark:text-orange-300 font-medium"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
@@ -298,7 +298,7 @@ export function FilterPanel({
                 key={skill}
                 type="button"
                 onClick={() => toggleArrayItem("skills", skill)}
-                className={`px-2 py-0.5 rounded text-[11px] border font-mono transition-colors ${
+                className={`px-2 py-0.5 rounded-md text-[11px] border font-mono transition-colors ${
                   isSelected
                     ? "bg-cyan-500/15 border-cyan-500/80 text-cyan-700 dark:text-cyan-300 font-medium"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
@@ -316,11 +316,11 @@ export function FilterPanel({
             placeholder="Add skill tag..."
             value={customSkillInput}
             onChange={(e) => setCustomSkillInput(e.target.value)}
-            className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded px-2.5 py-1 text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono"
+            className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg px-2.5 py-1 text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono text-xs"
           />
           <button
             type="submit"
-            className="px-2 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
+            className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
           >
             <Plus className="w-3.5 h-3.5" />
           </button>
@@ -345,7 +345,7 @@ export function FilterPanel({
                     page: 1,
                   })
                 }
-                className={`flex-1 py-1 rounded text-[10px] font-mono border transition-colors ${
+                className={`flex-1 py-1 rounded-md text-[10px] font-mono border transition-colors ${
                   isSelected
                     ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 font-bold"
                     : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
@@ -363,7 +363,7 @@ export function FilterPanel({
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:block w-72 flex-shrink-0 p-5 rounded-2xl bg-white dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800/80 sticky top-24 self-start shadow-md dark:shadow-xl transition-colors duration-150">
+      <aside className="hidden lg:block w-72 flex-shrink-0 p-5 rounded-xl bg-white dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800/80 sticky top-24 self-start shadow-sm transition-colors duration-150">
         {content}
       </aside>
 
@@ -390,7 +390,7 @@ export function FilterPanel({
       {/* Mobile Bottom Sheet Modal */}
       {isMobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-end bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-h-[85vh] overflow-y-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 rounded-t-2xl p-5 shadow-2xl">
+          <div className="w-full max-h-[85vh] overflow-y-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 rounded-t-xl p-5 shadow-xl">
             <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200 dark:border-zinc-800">
               <span className="font-mono font-bold text-zinc-900 dark:text-zinc-100">Filter Job Stream</span>
               <button
@@ -406,7 +406,7 @@ export function FilterPanel({
             <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
               <button
                 onClick={() => setIsMobileOpen(false)}
-                className="w-full py-2.5 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs"
+                className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 font-semibold text-xs transition-colors"
               >
                 Apply Filters ({totalResults} results)
               </button>

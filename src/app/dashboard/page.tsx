@@ -85,7 +85,7 @@ export default function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 mb-8 shadow-sm transition-colors duration-150">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 mb-8 shadow-sm transition-colors duration-150">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <LayoutDashboard className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />

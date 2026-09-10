@@ -304,7 +304,7 @@ export default function ProfilePage() {
             type="button"
             onClick={() => handleSave()}
             disabled={isSaving}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold font-mono text-xs transition-colors shadow-sm disabled:opacity-50"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 font-semibold font-mono text-xs transition-colors shadow-sm disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
             <span>{isSaving ? "Saving..." : "Save Changes"}</span>
@@ -333,7 +333,7 @@ export default function ProfilePage() {
         {/* Left Column: Profile Form (8 cols) */}
         <form onSubmit={handleSave} className="lg:col-span-8 space-y-6">
           {/* Section 1: Personal Information */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
+          <div className="p-6 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
             <div className="flex items-center gap-2 pb-3 border-b border-zinc-200 dark:border-zinc-800/80">
               <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <h2 className="text-sm font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
@@ -416,7 +416,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Section 2: Experience & Industry */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
+          <div className="p-6 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
             <div className="flex items-center gap-2 pb-3 border-b border-zinc-200 dark:border-zinc-800/80">
               <Briefcase className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <h2 className="text-sm font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
@@ -515,7 +515,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Section 3: Skills (Editable Tags) */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
+          <div className="p-6 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
             <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800/80">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -648,7 +648,7 @@ export default function ProfilePage() {
                     key={s}
                     type="button"
                     onClick={() => handleAddSkill(s)}
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-zinc-900/60 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shadow-sm"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono bg-white dark:bg-zinc-900/60 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shadow-sm"
                   >
                     <Plus className="w-2.5 h-2.5" />
                     <span>{s}</span>
@@ -659,7 +659,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Section 4: Job Preferences */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
+          <div className="p-6 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-5 shadow-sm">
             <div className="flex items-center gap-2 pb-3 border-b border-zinc-200 dark:border-zinc-800/80">
               <MapPin className="w-4 h-4 text-amber-500 dark:text-amber-400" />
               <h2 className="text-sm font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
@@ -889,14 +889,14 @@ export default function ProfilePage() {
           </div>
 
           {/* Bottom Save Action */}
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-4 shadow-sm">
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-4 shadow-sm">
             <span className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
               Changes take effect immediately across all matched positions.
             </span>
             <button
               type="submit"
               disabled={isSaving}
-              className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold font-mono text-xs transition-colors shadow-sm disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 font-semibold font-mono text-xs transition-colors shadow-sm disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
               <span>{isSaving ? "Saving..." : "Save Preferences"}</span>
@@ -907,7 +907,7 @@ export default function ProfilePage() {
         {/* Right Column: Sidebar & Intelligence (4 cols) */}
         <div className="lg:col-span-4 space-y-6">
           {/* 1. Profile Completeness Card */}
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold">
                 Profile Completeness
@@ -990,7 +990,7 @@ export default function ProfilePage() {
           </div>
 
           {/* 2. Job Matching Intelligence Card */}
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-zinc-200 dark:border-zinc-800/80">
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <h3 className="text-sm font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
@@ -1060,7 +1060,7 @@ export default function ProfilePage() {
           </div>
 
           {/* 3. Candidate Card Preview */}
-          <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-3">
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-3">
             <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-semibold block">
               Candidate Preview
             </span>

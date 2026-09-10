@@ -105,7 +105,7 @@ export default function AlertsPage() {
 
         <button
           onClick={() => setIsCreating(!isCreating)}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-mono font-bold transition-colors shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 text-xs font-mono font-semibold transition-colors shadow-sm"
         >
           <Plus className="w-4 h-4" />
           <span>Create New Alert</span>
@@ -116,7 +116,7 @@ export default function AlertsPage() {
       {isCreating && (
         <form
           onSubmit={handleCreateAlert}
-          className="mb-8 p-6 rounded-2xl bg-white dark:bg-zinc-900/90 border border-emerald-500/40 shadow-xl space-y-4 text-xs transition-colors duration-150"
+          className="mb-8 p-6 rounded-xl bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4 text-xs transition-colors duration-150"
         >
           <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800">
             <span className="font-mono font-bold text-sm text-zinc-900 dark:text-zinc-100">Set Up Real-time Opportunity Watcher</span>
@@ -206,7 +206,7 @@ export default function AlertsPage() {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold font-mono text-xs transition-colors shadow-sm"
+              className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 font-semibold font-mono text-xs transition-colors shadow-sm"
             >
               Activate Real-time Alert
             </button>
@@ -218,13 +218,13 @@ export default function AlertsPage() {
       {isLoading ? (
         <div className="text-center py-12 text-xs font-mono text-zinc-500">Loading alerts...</div>
       ) : alerts.length === 0 ? (
-        <div className="text-center py-16 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+        <div className="text-center py-16 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <Bell className="w-8 h-8 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
           <h3 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-300 mb-1">No active job alerts configured</h3>
           <p className="text-xs text-zinc-500 mb-4">Set up an alert to receive immediate notifications when fresh jobs enter the stream.</p>
           <button
             onClick={() => setIsCreating(true)}
-            className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold font-mono shadow-sm"
+            className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 text-xs font-semibold font-mono shadow-sm transition-colors"
           >
             Create Your First Alert
           </button>
@@ -239,7 +239,7 @@ export default function AlertsPage() {
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="text-sm font-bold font-mono text-zinc-900 dark:text-zinc-100">{alert.name}</h3>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono border ${
+                  <span className={`px-2 py-0.5 rounded-md text-[10px] font-mono border ${
                     alert.isEnabled
                       ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400"
                       : "bg-zinc-100 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-500"
@@ -251,21 +251,21 @@ export default function AlertsPage() {
                 <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-600 dark:text-zinc-400 mt-2">
                   {alert.filters.locations && alert.filters.locations.length > 0 && (
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-zinc-400 dark:text-zinc-500" />
+                      <MapPin className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
                       <span>{alert.filters.locations.join(", ")}</span>
                     </span>
                   )}
                   {alert.filters.experienceLevels && alert.filters.experienceLevels.length > 0 && (
                     <span className="flex items-center gap-1">
-                      <Briefcase className="w-3 h-3 text-zinc-400 dark:text-zinc-500" />
+                      <Briefcase className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
                       <span>{alert.filters.experienceLevels.join(", ")}</span>
                     </span>
                   )}
                   {alert.filters.skills && alert.filters.skills.length > 0 && (
                     <div className="flex items-center gap-1">
-                      <Zap className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
+                      <Zap className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
                       {alert.filters.skills.map((s) => (
-                        <span key={s} className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+                        <span key={s} className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
                           {s}
                         </span>
                       ))}

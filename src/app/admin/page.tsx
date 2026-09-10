@@ -146,7 +146,7 @@ export default function AdminPage() {
           <button
             onClick={handleSimulateEvent}
             disabled={isSimulating}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold font-mono transition-colors disabled:opacity-50 shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:text-zinc-950 text-xs font-semibold font-mono transition-colors disabled:opacity-50 shadow-sm"
             title="Inject 1 new job and close 1 older job to verify live updates"
           >
             <Zap className={`w-3.5 h-3.5 ${isSimulating ? "animate-spin" : ""}`} />
@@ -166,7 +166,7 @@ export default function AdminPage() {
 
       {actionMessage && (
         <div className="mb-6 p-3 rounded-xl bg-emerald-50 dark:bg-zinc-900 border border-emerald-500/40 text-emerald-800 dark:text-emerald-400 font-mono text-xs flex items-center gap-2 shadow-sm">
-          <Radio className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
+          <Radio className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>{actionMessage}</span>
         </div>
       )}
@@ -195,7 +195,7 @@ export default function AdminPage() {
       </div>
 
       {/* Source Health Table */}
-      <div className="mb-10 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-sm">
+      <div className="mb-10 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-sm">
         <div className="p-5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Activity className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -250,7 +250,7 @@ export default function AdminPage() {
                   <td className="p-3.5 text-right">
                     <button
                       onClick={() => handleToggleSource(s.id, s.isEnabled)}
-                      className={`px-3 py-1 rounded text-[11px] border transition-colors ${
+                      className={`px-3 py-1 rounded-md text-[11px] border transition-colors ${
                         s.isEnabled
                           ? "bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white"
                           : "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/20"
@@ -267,7 +267,7 @@ export default function AdminPage() {
       </div>
 
       {/* Ingestion Crawl Log */}
-      <div className="rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-sm">
+      <div className="rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-sm">
         <div className="p-5 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-sm font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">Recent Ingestion Crawl Runs</h2>
         </div>
@@ -291,7 +291,7 @@ export default function AdminPage() {
                   <td className="p-3.5 text-emerald-600 dark:text-emerald-400 font-bold">+{r.discovered}</td>
                   <td className="p-3.5 text-cyan-600 dark:text-cyan-400">~{r.updated}</td>
                   <td className="p-3.5">
-                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${
+                    <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border ${
                       r.status === "SUCCESS"
                         ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30"
                         : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30"

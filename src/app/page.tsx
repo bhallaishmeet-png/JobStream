@@ -297,7 +297,7 @@ export default function HomePage() {
                       page: 1,
                     }))
                   }
-                  className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded px-2.5 py-1 text-zinc-800 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 text-xs font-mono shadow-sm"
+                  className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg px-2.5 py-1.5 text-zinc-800 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 text-xs font-mono shadow-sm"
                 >
                   <option value="newest">Newest first (Default)</option>
                   <option value="best_match">Best match</option>
