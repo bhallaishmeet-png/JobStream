@@ -6,6 +6,40 @@ JOBSTREAM is a real-time job discovery and canonical aggregation platform design
 
 ---
 
+## 🔐 Environment Variables
+
+The project uses environment variables for database connections, application URLs, and optional AI model providers.
+
+### Setup Instructions
+
+1. **Copy the example configuration file:**
+   - **Bash (Linux/macOS):**
+     ```bash
+     cp .env.example .env.local
+     ```
+   - **PowerShell (Windows):**
+     ```powershell
+     Copy-Item .env.example .env.local
+     ```
+
+2. **Configure your values:**
+   Open `.env.local` and set your desired database connection:
+   - For local development, the default SQLite configuration works out-of-the-box:
+     ```env
+     DATABASE_URL="file:./dev.db"
+     ```
+   - For PostgreSQL/Supabase production:
+     ```env
+     DATABASE_URL="postgresql://postgres:[PASSWORD]@[HOST]:5432/[DB_NAME]?sslmode=require"
+     ```
+
+3. **Security Hygiene Rules:**
+   - **Never commit `.env`, `.env.local`, or any `*.env` files to git.** (Enforced via `.gitignore`).
+   - **Never share API keys or production database credentials publicly.**
+   - Only non-sensitive variables intended for browser access are prefixed with `NEXT_PUBLIC_`.
+
+---
+
 ## 🚀 Key Highlights
 
 1. **Real-Time Live Feed Engine**:
@@ -68,18 +102,26 @@ JOBSTREAM is a real-time job discovery and canonical aggregation platform design
 # Navigate to the project directory
 cd C:\Users\Hp\.gemini\antigravity\scratch\jobstream
 
-# Install dependencies (already installed)
+# Setup local environment variables
+# Windows PowerShell:
+Copy-Item .env.example .env.local
+# or Bash:
+# cp .env.example .env.local
+
+# Install dependencies
 npm install
 
-# Push Prisma database schema (already initialized)
+# Push Prisma database schema
 npx prisma db push
 
 # Seed with initial tech jobs and test profile
 node prisma/seed.js
 
-# Start the application
+# Start the application in development mode
 npm run dev
-# or production mode
+
+# Or run optimized production build
+npx next build
 npx next start -p 3000
 ```
 
