@@ -9,7 +9,7 @@ import { JobCard } from "@/components/feed/JobCard";
 import { FilterPanel } from "@/components/feed/FilterPanel";
 import { JobDetailModal } from "@/components/feed/JobDetailModal";
 import { EmptyFeedState } from "@/components/feed/EmptyFeedState";
-import { ArrowUpDown, Loader2 } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const DEFAULT_FILTERS: JobFilterState = {
@@ -277,17 +277,17 @@ export default function HomePage() {
           {/* Right Live Job Feed */}
           <div className="flex-1 w-full min-w-0">
             {/* Feed Control Bar: Match count + Sort By */}
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-zinc-800/80 text-xs font-mono">
-              <div className="flex items-center gap-2 text-zinc-300">
-                <span className="text-zinc-500 font-semibold">FEED STREAM:</span>
-                <span className="text-emerald-400 font-bold">{totalMatches}</span>
-                <span className="text-zinc-400">active opportunities</span>
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-zinc-200 dark:border-zinc-800/80 text-xs font-mono">
+              <div className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+                <span className="text-zinc-500 dark:text-zinc-500 font-semibold">FEED STREAM:</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">{totalMatches}</span>
+                <span className="text-zinc-600 dark:text-zinc-400">active opportunities</span>
               </div>
 
               {/* Sort By Dropdown */}
               <div className="flex items-center gap-2">
-                <ArrowUpDown className="w-3.5 h-3.5 text-zinc-500" />
-                <span className="text-zinc-500">Sort:</span>
+                <ArrowUpDown className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
+                <span className="text-zinc-500 dark:text-zinc-500">Sort:</span>
                 <select
                   value={filters.sortBy}
                   onChange={(e) =>
@@ -297,7 +297,7 @@ export default function HomePage() {
                       page: 1,
                     }))
                   }
-                  className="bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1 text-zinc-200 focus:outline-none focus:border-zinc-700 text-xs font-mono"
+                  className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded px-2.5 py-1 text-zinc-800 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 text-xs font-mono shadow-sm"
                 >
                   <option value="newest">Newest first (Default)</option>
                   <option value="best_match">Best match</option>
@@ -313,17 +313,17 @@ export default function HomePage() {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/60 animate-pulse"
+                    className="p-5 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 animate-pulse shadow-sm"
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-zinc-800"></div>
+                      <div className="w-10 h-10 rounded-lg bg-zinc-200 dark:bg-zinc-800"></div>
                       <div className="space-y-2 flex-1">
-                        <div className="h-4 bg-zinc-800 rounded w-1/3"></div>
-                        <div className="h-3 bg-zinc-800/60 rounded w-1/4"></div>
+                        <div className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-1/3"></div>
+                        <div className="h-3 bg-zinc-100 dark:bg-zinc-800/60 rounded w-1/4"></div>
                       </div>
                     </div>
-                    <div className="h-3 bg-zinc-800/40 rounded w-full mb-2"></div>
-                    <div className="h-3 bg-zinc-800/40 rounded w-2/3"></div>
+                    <div className="h-3 bg-zinc-100 dark:bg-zinc-800/40 rounded w-full mb-2"></div>
+                    <div className="h-3 bg-zinc-100 dark:bg-zinc-800/40 rounded w-2/3"></div>
                   </div>
                 ))}
               </div>

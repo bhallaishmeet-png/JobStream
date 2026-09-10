@@ -11,7 +11,6 @@ import {
   Bookmark, 
   Send, 
   Bell, 
-  TrendingUp, 
   UserCircle,
   ArrowRight
 } from "lucide-react";
@@ -86,74 +85,74 @@ export default function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-zinc-950 border border-zinc-800 mb-8 shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 mb-8 shadow-sm transition-colors duration-150">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <LayoutDashboard className="w-5 h-5 text-emerald-400" />
-            <h1 className="text-2xl font-bold font-mono text-zinc-100">Your Job Dashboard</h1>
+            <LayoutDashboard className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <h1 className="text-2xl font-bold font-mono text-zinc-900 dark:text-zinc-100">Your Job Dashboard</h1>
           </div>
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-zinc-600 dark:text-zinc-400">
             Real-time telemetry tailored to your skills in {profile?.skills.slice(0, 4).join(", ") || "Full Stack & AI"}.
           </p>
         </div>
 
         <Link
           href="/profile"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-xs font-mono text-zinc-200"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-700 hover:text-zinc-900 dark:text-zinc-200 shadow-sm"
         >
-          <UserCircle className="w-4 h-4 text-emerald-400" />
+          <UserCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>Edit Search Profile</span>
         </Link>
       </div>
 
       {/* Metrics Row */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
-        <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between text-zinc-500 mb-1">
             <span className="text-[11px] font-mono">NEW MATCHING</span>
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           </div>
-          <div className="text-2xl font-bold font-mono text-emerald-400">
+          <div className="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">
             {matchingJobs.length}
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between text-zinc-500 mb-1">
             <span className="text-[11px] font-mono">PAST HOUR</span>
-            <Clock className="w-3.5 h-3.5 text-cyan-400" />
+            <Clock className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
           </div>
-          <div className="text-2xl font-bold font-mono text-cyan-400">
+          <div className="text-2xl font-bold font-mono text-cyan-600 dark:text-cyan-400">
             {discoveredLastHour}
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between text-zinc-500 mb-1">
             <span className="text-[11px] font-mono">SAVED</span>
-            <Bookmark className="w-3.5 h-3.5 text-amber-400" />
+            <Bookmark className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
           </div>
-          <div className="text-2xl font-bold font-mono text-amber-400">
+          <div className="text-2xl font-bold font-mono text-amber-600 dark:text-amber-400">
             {savedCount}
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between text-zinc-500 mb-1">
             <span className="text-[11px] font-mono">APPLICATIONS</span>
-            <Send className="w-3.5 h-3.5 text-indigo-400" />
+            <Send className="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-400" />
           </div>
-          <div className="text-2xl font-bold font-mono text-indigo-400">
+          <div className="text-2xl font-bold font-mono text-indigo-600 dark:text-indigo-400">
             {appliedCount}
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center justify-between text-zinc-500 mb-1">
             <span className="text-[11px] font-mono">ACTIVE ALERTS</span>
-            <Bell className="w-3.5 h-3.5 text-orange-400" />
+            <Bell className="w-3.5 h-3.5 text-orange-500 dark:text-orange-400" />
           </div>
-          <div className="text-2xl font-bold font-mono text-orange-400">
+          <div className="text-2xl font-bold font-mono text-orange-600 dark:text-orange-400">
             {alertsCount}
           </div>
         </div>
@@ -162,10 +161,10 @@ export default function DashboardPage() {
       {/* Recommended Matches Section */}
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-emerald-400" />
-          <h2 className="text-base font-bold font-mono text-zinc-100">Your Newest Matches</h2>
+          <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          <h2 className="text-base font-bold font-mono text-zinc-900 dark:text-zinc-100">Your Newest Matches</h2>
         </div>
-        <Link href="/" className="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:underline">
+        <Link href="/" className="inline-flex items-center gap-1 text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline">
           <span>View Full Live Feed</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>

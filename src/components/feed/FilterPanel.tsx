@@ -5,14 +5,6 @@ import { JobFilterState } from "@/lib/types";
 import { 
   Filter, 
   RotateCcw, 
-  MapPin, 
-  Briefcase, 
-  Building2, 
-  DollarSign, 
-  Clock, 
-  Code2, 
-  ChevronDown, 
-  ChevronUp, 
   X,
   Plus
 } from "lucide-react";
@@ -122,18 +114,18 @@ export function FilterPanel({
     (filters.minSalary ? 1 : 0);
 
   const content = (
-    <div className="space-y-6 text-xs text-zinc-300">
+    <div className="space-y-6 text-xs text-zinc-700 dark:text-zinc-300">
       {/* Top Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
-        <div className="flex items-center gap-2 font-mono font-bold text-zinc-100 uppercase tracking-wider">
-          <Filter className="w-3.5 h-3.5 text-emerald-400" />
+      <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="flex items-center gap-2 font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
+          <Filter className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Filters ({totalResults} matches)</span>
         </div>
 
         {activeFilterCount > 0 && (
           <button
             onClick={onReset}
-            className="flex items-center gap-1 text-[11px] text-zinc-400 hover:text-rose-400 transition-colors"
+            className="flex items-center gap-1 text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
           >
             <RotateCcw className="w-3 h-3" />
             <span>Reset</span>
@@ -143,7 +135,7 @@ export function FilterPanel({
 
       {/* 1. Location Filter */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Location
         </label>
         <div className="flex flex-wrap gap-1.5 mb-2.5">
@@ -156,8 +148,8 @@ export function FilterPanel({
                 onClick={() => toggleArrayItem("locations", loc)}
                 className={`px-2 py-1 rounded text-[11px] border transition-colors ${
                   isSelected
-                    ? "bg-emerald-500/20 border-emerald-500/80 text-emerald-300 font-medium"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                    ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
                 }`}
               >
                 {loc}
@@ -173,11 +165,11 @@ export function FilterPanel({
             placeholder="Add custom city..."
             value={customLocInput}
             onChange={(e) => setCustomLocInput(e.target.value)}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-700"
+            className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded px-2.5 py-1 text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono"
           />
           <button
             type="submit"
-            className="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 rounded text-zinc-300 border border-zinc-700"
+            className="px-2 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
           >
             <Plus className="w-3.5 h-3.5" />
           </button>
@@ -186,7 +178,7 @@ export function FilterPanel({
 
       {/* 2. Experience Level */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Experience
         </label>
         <div className="grid grid-cols-2 gap-1.5">
@@ -199,8 +191,8 @@ export function FilterPanel({
                 onClick={() => toggleArrayItem("experienceLevels", exp.id)}
                 className={`px-2.5 py-1.5 rounded text-[11px] text-left border transition-colors ${
                   isSelected
-                    ? "bg-emerald-500/20 border-emerald-500/80 text-emerald-300 font-medium"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                    ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
                 }`}
               >
                 {exp.label}
@@ -212,7 +204,7 @@ export function FilterPanel({
 
       {/* 3. Work Mode */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Work Mode
         </label>
         <div className="flex gap-1.5">
@@ -225,8 +217,8 @@ export function FilterPanel({
                 onClick={() => toggleArrayItem("workModes", mode.id)}
                 className={`flex-1 py-1.5 rounded text-[11px] text-center border transition-colors ${
                   isSelected
-                    ? "bg-emerald-500/20 border-emerald-500/80 text-emerald-300 font-medium"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                    ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
                 }`}
               >
                 {mode.label}
@@ -238,7 +230,7 @@ export function FilterPanel({
 
       {/* 4. Job Type */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Job Type
         </label>
         <div className="flex flex-wrap gap-1.5">
@@ -251,8 +243,8 @@ export function FilterPanel({
                 onClick={() => toggleArrayItem("jobTypes", type.id)}
                 className={`px-2.5 py-1 rounded text-[11px] border transition-colors ${
                   isSelected
-                    ? "bg-emerald-500/20 border-emerald-500/80 text-emerald-300 font-medium"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                    ? "bg-emerald-500/15 border-emerald-500/80 text-emerald-700 dark:text-emerald-300 font-medium"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
                 }`}
               >
                 {type.label}
@@ -264,7 +256,7 @@ export function FilterPanel({
 
       {/* 5. Posted Within */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Posted Time Window
         </label>
         <div className="flex flex-wrap gap-1.5">
@@ -282,8 +274,8 @@ export function FilterPanel({
                 }
                 className={`px-2 py-1 rounded text-[11px] border transition-colors ${
                   isSelected
-                    ? "bg-orange-500/20 border-orange-500/80 text-orange-300 font-medium"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                    ? "bg-orange-500/15 border-orange-500/80 text-orange-700 dark:text-orange-300 font-medium"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
                 }`}
               >
                 {win.label}
@@ -295,7 +287,7 @@ export function FilterPanel({
 
       {/* 6. Skills Filter */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Skills
         </label>
         <div className="flex flex-wrap gap-1.5 mb-2">
@@ -308,8 +300,8 @@ export function FilterPanel({
                 onClick={() => toggleArrayItem("skills", skill)}
                 className={`px-2 py-0.5 rounded text-[11px] border font-mono transition-colors ${
                   isSelected
-                    ? "bg-cyan-500/20 border-cyan-500/80 text-cyan-300 font-medium"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                    ? "bg-cyan-500/15 border-cyan-500/80 text-cyan-700 dark:text-cyan-300 font-medium"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-700"
                 }`}
               >
                 {skill}
@@ -324,11 +316,11 @@ export function FilterPanel({
             placeholder="Add skill tag..."
             value={customSkillInput}
             onChange={(e) => setCustomSkillInput(e.target.value)}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-700"
+            className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded px-2.5 py-1 text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono"
           />
           <button
             type="submit"
-            className="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 rounded text-zinc-300 border border-zinc-700"
+            className="px-2 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
           >
             <Plus className="w-3.5 h-3.5" />
           </button>
@@ -337,7 +329,7 @@ export function FilterPanel({
 
       {/* 7. Salary Minimum Filter */}
       <div>
-        <label className="block font-mono uppercase text-[11px] text-zinc-400 mb-2 font-semibold">
+        <label className="block font-mono uppercase text-[11px] text-zinc-600 dark:text-zinc-400 mb-2 font-semibold">
           Minimum Salary (LPA / Annual)
         </label>
         <div className="flex items-center gap-2">
@@ -355,8 +347,8 @@ export function FilterPanel({
                 }
                 className={`flex-1 py-1 rounded text-[10px] font-mono border transition-colors ${
                   isSelected
-                    ? "bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-zinc-200"
+                    ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 font-bold"
+                    : "bg-zinc-50 hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
                 }`}
               >
                 ₹{sal / 100000}L+
@@ -371,7 +363,7 @@ export function FilterPanel({
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:block w-72 flex-shrink-0 p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 sticky top-24 self-start shadow-xl">
+      <aside className="hidden lg:block w-72 flex-shrink-0 p-5 rounded-2xl bg-white dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800/80 sticky top-24 self-start shadow-md dark:shadow-xl transition-colors duration-150">
         {content}
       </aside>
 
@@ -379,16 +371,16 @@ export function FilterPanel({
       <div className="lg:hidden flex items-center justify-between mb-4 px-1">
         <button
           onClick={() => setIsMobileOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 font-mono"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-800 dark:text-zinc-200 font-mono shadow-sm"
         >
-          <Filter className="w-3.5 h-3.5 text-emerald-400" />
+          <Filter className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Filters ({activeFilterCount > 0 ? `${activeFilterCount} active` : "All"})</span>
         </button>
 
         {activeFilterCount > 0 && (
           <button
             onClick={onReset}
-            className="text-xs text-zinc-400 hover:text-rose-400 font-mono"
+            className="text-xs text-zinc-500 hover:text-rose-600 dark:text-zinc-400 dark:hover:text-rose-400 font-mono"
           >
             Reset all
           </button>
@@ -397,13 +389,13 @@ export function FilterPanel({
 
       {/* Mobile Bottom Sheet Modal */}
       {isMobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-end bg-black/80 backdrop-blur-sm">
-          <div className="w-full max-h-[85vh] overflow-y-auto bg-zinc-950 border-t border-zinc-800 rounded-t-2xl p-5 shadow-2xl">
-            <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800">
-              <span className="font-mono font-bold text-zinc-100">Filter Job Stream</span>
+        <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-end bg-black/60 backdrop-blur-sm">
+          <div className="w-full max-h-[85vh] overflow-y-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 rounded-t-2xl p-5 shadow-2xl">
+            <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200 dark:border-zinc-800">
+              <span className="font-mono font-bold text-zinc-900 dark:text-zinc-100">Filter Job Stream</span>
               <button
                 onClick={() => setIsMobileOpen(false)}
-                className="p-1.5 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white"
+                className="p-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -411,7 +403,7 @@ export function FilterPanel({
 
             {content}
 
-            <div className="mt-6 pt-4 border-t border-zinc-800">
+            <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
               <button
                 onClick={() => setIsMobileOpen(false)}
                 className="w-full py-2.5 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs"
