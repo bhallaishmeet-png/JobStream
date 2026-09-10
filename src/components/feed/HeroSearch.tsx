@@ -53,7 +53,7 @@ export function HeroSearch({
   ];
 
   return (
-    <section className="relative pt-6 pb-8 border-b border-zinc-800/80 terminal-grid">
+    <section className="relative pt-6 pb-8 border-b border-zinc-800/80">
       <div className="max-w-4xl mx-auto px-4 text-center">
         {/* Live Discovered Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300 shadow-inner">
@@ -66,7 +66,7 @@ export function HeroSearch({
 
         {/* Headlines */}
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3 font-mono">
-          The internet&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">live job feed.</span>
+          The internet&apos;s <span className="text-emerald-400">live job feed.</span>
         </h1>
         <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto mb-6">
           Discover newly posted opportunities from across the web, filtered around what matters to you.

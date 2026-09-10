@@ -253,7 +253,7 @@ export default function ProfilePage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold font-mono text-xs transition-colors shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold font-mono text-xs transition-colors shadow-sm disabled:opacity-50"
         >
           <Save className="w-4 h-4" />
           <span>{isSaving ? "Saving Preferences..." : "Save Job-Search Profile"}</span>
