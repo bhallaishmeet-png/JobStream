@@ -89,8 +89,7 @@ export function JobCard({
             className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md border font-mono text-xs font-bold ${freshness.badgeColor} ${freshness.textColor}`}
             title={`Freshness score: ${freshness.score}/100`}
           >
-            <span>{freshness.emoji}</span>
-            <span>{freshness.score}</span>
+            <span>{freshness.score} Freshness</span>
           </div>
         </div>
 
@@ -143,7 +142,7 @@ export function JobCard({
         <div className="flex flex-wrap items-center gap-3">
           {/* Dynamic Posting Time */}
           <span className="text-zinc-400 font-mono text-[11px]">
-            {freshness.emoji} Posted {relativeTime}
+            Posted {relativeTime}
           </span>
 
           {/* AI Match Percentage */}

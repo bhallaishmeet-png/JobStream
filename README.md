@@ -1,4 +1,4 @@
-# ⚡ JOBSTREAM — The Internet’s Live Job Feed
+# JOBSTREAM — The Internet’s Live Job Feed
 
 > **"Don't search for jobs. Let the jobs find you."**
 
@@ -6,7 +6,7 @@ JOBSTREAM is a real-time job discovery and canonical aggregation platform design
 
 ---
 
-## 🔐 Environment Variables
+## Environment Variables
 
 The project uses environment variables for database connections, application URLs, and optional AI model providers.
 
@@ -40,35 +40,35 @@ The project uses environment variables for database connections, application URL
 
 ---
 
-## 🚀 Key Highlights
+## Key Highlights
 
 1. **Real-Time Live Feed Engine**:
-   - Dynamic countdown ticker (`🟢 LIVE • Last updated 14s ago • Next update in 46s`).
+   - Dynamic countdown ticker (`LIVE - Last updated 14s ago - Next update in 46s`).
    - Incremental 60-second polling and feed diffing: detects newly discovered jobs, status closures, and listing updates without reloading the page.
-   - Non-intrusive floating update notification pill: `⚡ X new jobs found • 🔴 Y jobs closed • ♻️ Z jobs updated` with smooth prepend.
+   - Non-intrusive floating update notification pill: `X new jobs found | Y jobs closed | Z jobs updated` with smooth prepend.
 
 2. **Dynamic Freshness Decay System**:
-   - Discovered `< 1 min` ago: `🔥 99` (Just now)
-   - Discovered `< 5 min` ago: `🔥 96` (Xm ago)
-   - Discovered `< 30 min` ago: `🟡 85`
-   - Discovered `< 3 hours` ago: `🟡 65`
-   - Discovered `< 24 hours` ago: `⚪ 50`
-   - Discovered `< 7 days` ago: `⚪ 30`
+   - Discovered `< 1 min` ago: `99 Freshness` (Just now)
+   - Discovered `< 5 min` ago: `96 Freshness` (Xm ago)
+   - Discovered `< 30 min` ago: `85 Freshness`
+   - Discovered `< 3 hours` ago: `65 Freshness`
+   - Discovered `< 24 hours` ago: `50 Freshness`
+   - Discovered `< 7 days` ago: `30 Freshness`
    - Real-time relative timers that tick dynamically every 10 seconds.
 
 3. **Closed Job Detection**:
    - Position lifecycle tracking: `ACTIVE`, `CLOSED`, `EXPIRED`, `REMOVED`.
    - When a job is confirmed closed, it is automatically removed from active feeds.
    - If a user is viewing a job when it closes: the Apply button is immediately disabled and a warning banner appears:
-     `🔴 This job has just closed and was removed from your results.`
+     `This job has just closed and was removed from your results.`
 
 4. **Canonical Cross-Source Deduplication**:
    - Composite signature normalizer (`normalized_company::normalized_title::normalized_location`).
    - Clusters listings across sources into a single canonical record with an audit badge: `Found on X sources` (e.g. Company Careers Direct + Demo Stream + WeWorkRemotely).
 
 5. **AI Matching & Profiling Layer**:
-   - Personalized match percentage (`🤖 96% Match`) with green pulse glow.
-   - Breakdown checklist of matched skills (`✓ React`, `✓ TypeScript`), missing skills (`⚠ Docker preferred`), and match rationale.
+   - Personalized match percentage (`96% Match`) with green pulse glow.
+   - Breakdown checklist of matched skills, missing skills, and match rationale.
    - Pluggable AI architecture: native heuristic NLP parser by default + extensible cloud LLM adapter.
 
 6. **Modular Source Adapter Architecture**:
@@ -80,13 +80,13 @@ The project uses environment variables for database connections, application URL
      - `DemoStreamAdapter`: High-fidelity simulator for top tech hubs (Bangalore, Gurgaon, Noida, Remote, Hyderabad, Mumbai) badged `[DEMO DATA]`.
 
 7. **Telemetry & Admin Health Operations**:
-   - Source Health status monitoring: `🟢 Healthy`, `🟡 Delayed`, `🔴 Error`.
+   - Source Health status monitoring: `Healthy`, `Delayed`, `Error`.
    - Real-time counters for jobs discovered today and in the past hour.
    - Interactive buttons: **"Sync All Sources Now"** and **"Simulate Live Event"** (immediately injects a fresh listing and closes an older position to demonstrate live feed reactions).
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS, Lucide Icons, clsx, tailwind-merge.
 - **Backend & Service Layer**: Next.js API Routes, Prisma ORM, Ingestion Pipeline, Deduplication Engine, AI Matcher.
@@ -96,7 +96,7 @@ The project uses environment variables for database connections, application URL
 
 ---
 
-## 💻 Getting Started Locally
+## Getting Started Locally
 
 ```bash
 # Navigate to the project directory
@@ -129,7 +129,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🧭 Page Sitemap
+## Page Sitemap
 
 - **`/`**: Live Job Feed with Hero Search, real-time countdown, filter panel, and job drawer.
 - **`/jobs/[id]`**: Standalone canonical job view with cross-source audit links.
