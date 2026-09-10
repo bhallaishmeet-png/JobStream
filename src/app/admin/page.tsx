@@ -102,7 +102,7 @@ export default function AdminPage() {
       });
       const resData = await res.json();
       if (resData.result) {
-        setActionMessage(`⚡ Live event simulated: ${resData.result.message}`);
+        setActionMessage(`Live event simulated: ${resData.result.message}`);
       }
       loadData();
     } catch (e) {
@@ -231,19 +231,19 @@ export default function AdminPage() {
                       {s.status === "HEALTHY" && (
                         <>
                           <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-emerald-400 font-bold">🟢 Healthy</span>
+                          <span className="text-emerald-400 font-bold">Healthy</span>
                         </>
                       )}
                       {s.status === "DELAYED" && (
                         <>
                           <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-                          <span className="text-amber-400 font-bold">🟡 Delayed</span>
+                          <span className="text-amber-400 font-bold">Delayed</span>
                         </>
                       )}
                       {s.status === "ERROR" && (
                         <>
                           <XCircle className="w-3.5 h-3.5 text-rose-400" />
-                          <span className="text-rose-400 font-bold">🔴 Error</span>
+                          <span className="text-rose-400 font-bold">Error</span>
                         </>
                       )}
                     </div>

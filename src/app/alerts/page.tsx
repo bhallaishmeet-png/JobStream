@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AlertItem } from "@/lib/types";
-import { Bell, Plus, Trash2, Check, ShieldCheck, Mail, Globe, Sparkles } from "lucide-react";
+import { Bell, Plus, Trash2, Check, ShieldCheck, Mail, Globe, Sparkles, MapPin, Briefcase, Zap } from "lucide-react";
 import Link from "next/link";
 
 export default function AlertsPage() {
@@ -251,14 +251,20 @@ export default function AlertsPage() {
 
                 <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-400 mt-2">
                   {alert.filters.locations && alert.filters.locations.length > 0 && (
-                    <span>📍 {alert.filters.locations.join(", ")}</span>
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-zinc-500" />
+                      <span>{alert.filters.locations.join(", ")}</span>
+                    </span>
                   )}
                   {alert.filters.experienceLevels && alert.filters.experienceLevels.length > 0 && (
-                    <span>💼 {alert.filters.experienceLevels.join(", ")}</span>
+                    <span className="flex items-center gap-1">
+                      <Briefcase className="w-3 h-3 text-zinc-500" />
+                      <span>{alert.filters.experienceLevels.join(", ")}</span>
+                    </span>
                   )}
                   {alert.filters.skills && alert.filters.skills.length > 0 && (
                     <div className="flex items-center gap-1">
-                      <span>⚡</span>
+                      <Zap className="w-3 h-3 text-emerald-400" />
                       {alert.filters.skills.map((s) => (
                         <span key={s} className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-zinc-800 text-zinc-300 border border-zinc-700">
                           {s}

@@ -95,7 +95,7 @@ export function JobDetailModal({
         {isClosed && (
           <div className="flex items-center gap-2.5 px-6 py-3 bg-rose-950/80 border-b border-rose-800 text-rose-300 text-xs font-semibold">
             <Ban className="w-4 h-4 text-rose-400 flex-shrink-0" />
-            <span>🔴 This job has just closed and was removed from your results.</span>
+            <span>This job has just closed and was removed from your results.</span>
           </div>
         )}
 
@@ -161,7 +161,7 @@ export function JobDetailModal({
               <span className="text-zinc-400">Posted:</span>
               <span className="text-zinc-200">{formatRelativeTime(currentJob.postedAt)}</span>
               <span className={`px-2 py-0.5 rounded border font-bold ${freshness.badgeColor} ${freshness.textColor}`}>
-                {freshness.emoji} {freshness.score}
+                {freshness.score} Freshness
               </span>
             </div>
 

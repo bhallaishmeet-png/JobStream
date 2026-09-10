@@ -12,7 +12,8 @@ import {
   Send, 
   Bell, 
   TrendingUp, 
-  UserCircle 
+  UserCircle,
+  ArrowRight
 } from "lucide-react";
 import Link from "next/link";
 
@@ -164,8 +165,9 @@ export default function DashboardPage() {
           <Sparkles className="w-4 h-4 text-emerald-400" />
           <h2 className="text-base font-bold font-mono text-zinc-100">Your Newest Matches</h2>
         </div>
-        <Link href="/" className="text-xs font-mono text-emerald-400 hover:underline">
-          View Full Live Feed →
+        <Link href="/" className="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 hover:underline">
+          <span>View Full Live Feed</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
 

@@ -76,7 +76,7 @@ export default async function JobDetailPage({
       {isClosed && (
         <div className="flex items-center gap-2 px-4 py-3 mb-6 rounded-xl bg-rose-950/80 border border-rose-800 text-rose-300 text-xs font-semibold">
           <Ban className="w-4 h-4 text-rose-400" />
-          <span>🔴 This job has just closed and was removed from your results.</span>
+          <span>This job has just closed and was removed from your results.</span>
         </div>
       )}
 
@@ -107,7 +107,7 @@ export default async function JobDetailPage({
 
           <div className="flex items-center gap-3">
             <div className={`px-3 py-1 rounded-lg border font-mono text-xs font-bold ${freshness.badgeColor} ${freshness.textColor}`}>
-              {freshness.emoji} Freshness {freshness.score}
+              Freshness {freshness.score}
             </div>
           </div>
         </div>

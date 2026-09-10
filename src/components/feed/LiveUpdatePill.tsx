@@ -1,6 +1,6 @@
 "use client";
 
-import { Zap, X } from "lucide-react";
+import { Zap, X, RefreshCw } from "lucide-react";
 
 interface LiveUpdatePillProps {
   newCount: number;
@@ -35,8 +35,9 @@ export function LiveUpdatePill({
           {closedCount > 0 && (
             <>
               <span className="text-zinc-600">•</span>
-              <span className="text-rose-400 font-medium">
-                🔴 {closedCount} closed
+              <span className="flex items-center gap-1 text-rose-400 font-medium">
+                <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+                {closedCount} closed
               </span>
             </>
           )}
@@ -44,8 +45,9 @@ export function LiveUpdatePill({
           {updatedCount > 0 && (
             <>
               <span className="text-zinc-600">•</span>
-              <span className="text-cyan-400 font-medium">
-                ♻️ {updatedCount} updated
+              <span className="flex items-center gap-1 text-cyan-400 font-medium">
+                <RefreshCw className="w-3 h-3 text-cyan-400" />
+                {updatedCount} updated
               </span>
             </>
           )}
