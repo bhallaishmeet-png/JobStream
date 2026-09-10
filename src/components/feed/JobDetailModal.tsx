@@ -145,6 +145,8 @@ export function JobDetailModal({
 
           <button
             onClick={onClose}
+            aria-label="Close details"
+            title="Close details"
             className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200 transition-colors"
           >
             <X className="w-5 h-5" />

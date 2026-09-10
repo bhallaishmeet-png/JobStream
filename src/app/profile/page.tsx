@@ -359,8 +359,10 @@ export default function ProfilePage() {
               </div>
 
               <div className="flex-1 w-full space-y-1">
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400">Avatar Image URL</label>
+                <label htmlFor="avatar-url" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400">Avatar Image URL</label>
                 <input
+                  id="avatar-url"
+                  aria-label="Avatar Image URL"
                   type="url"
                   value={avatar}
                   onChange={(e) => setAvatar(e.target.value)}
@@ -373,8 +375,10 @@ export default function ProfilePage() {
             {/* Name & Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">Full Name</label>
+                <label htmlFor="full-name" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">Full Name</label>
                 <input
+                  id="full-name"
+                  aria-label="Full Name"
                   type="text"
                   required
                   value={name}
@@ -385,8 +389,10 @@ export default function ProfilePage() {
               </div>
 
               <div>
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">Email Address</label>
+                <label htmlFor="email-address" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">Email Address</label>
                 <input
+                  id="email-address"
+                  aria-label="Email Address"
                   type="email"
                   required
                   value={email}
@@ -399,10 +405,12 @@ export default function ProfilePage() {
 
             {/* Short Professional Headline */}
             <div>
-              <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
+              <label htmlFor="professional-headline" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
                 Short Professional Headline
               </label>
               <input
+                id="professional-headline"
+                aria-label="Short Professional Headline"
                 type="text"
                 value={headline}
                 onChange={(e) => setHeadline(e.target.value)}
@@ -427,10 +435,12 @@ export default function ProfilePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Total Years of Experience */}
               <div>
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
+                <label htmlFor="experience-level" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
                   Total Years of Experience
                 </label>
                 <select
+                  id="experience-level"
+                  aria-label="Total Years of Experience"
                   value={experienceLevel}
                   onChange={(e) => setExperienceLevel(e.target.value)}
                   className="w-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono"
@@ -450,10 +460,12 @@ export default function ProfilePage() {
 
               {/* Current / Previous Role */}
               <div>
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
+                <label htmlFor="current-role" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
                   Current or Previous Role
                 </label>
                 <input
+                  id="current-role"
+                  aria-label="Current or Previous Role"
                   type="text"
                   value={currentRole}
                   onChange={(e) => setCurrentRole(e.target.value)}
@@ -491,6 +503,8 @@ export default function ProfilePage() {
               {/* Custom Industry Input */}
               <div className="flex items-center gap-2 max-w-sm">
                 <input
+                  id="custom-industry-input"
+                  aria-label="Custom industry name"
                   type="text"
                   value={newIndustryInput}
                   onChange={(e) => setNewIndustryInput(e.target.value)}
@@ -545,6 +559,7 @@ export default function ProfilePage() {
                       <input
                         type="text"
                         autoFocus
+                        aria-label="Edit skill name"
                         value={editingSkillValue}
                         onChange={(e) => setEditingSkillValue(e.target.value)}
                         onKeyDown={(e) => {
@@ -613,6 +628,8 @@ export default function ProfilePage() {
             {/* Add Skill Input */}
             <div className="flex items-center gap-2">
               <input
+                id="add-skill-input"
+                aria-label="Add a new technical skill"
                 type="text"
                 value={newSkillInput}
                 onChange={(e) => setNewSkillInput(e.target.value)}
@@ -669,14 +686,14 @@ export default function ProfilePage() {
 
             {/* Preferred Job Titles */}
             <div>
-              <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1.5">
+              <label htmlFor="custom-role-input" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1.5">
                 Preferred Job Titles
               </label>
               <div className="flex flex-wrap items-center gap-2 mb-2 p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800">
                 {preferredRoles.map((role, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-800 dark:text-zinc-200 shadow-sm"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-800 dark:text-zinc-200 shadow-sm"
                   >
                     <span>{role}</span>
                     <button
@@ -692,6 +709,8 @@ export default function ProfilePage() {
 
               <div className="flex items-center gap-2 mb-2">
                 <input
+                  id="custom-role-input"
+                  aria-label="Custom job title"
                   type="text"
                   value={newRoleInput}
                   onChange={(e) => setNewRoleInput(e.target.value)}
@@ -719,7 +738,7 @@ export default function ProfilePage() {
                     key={r}
                     type="button"
                     onClick={() => handleAddRole(r)}
-                    className="text-[11px] font-mono px-2 py-0.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 shadow-sm"
+                    className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 shadow-sm"
                   >
                     + {r}
                   </button>
@@ -729,14 +748,14 @@ export default function ProfilePage() {
 
             {/* Preferred Locations */}
             <div>
-              <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1.5">
+              <label htmlFor="custom-location-input" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1.5">
                 Target Geographic Locations
               </label>
               <div className="flex flex-wrap items-center gap-2 mb-2 p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800">
                 {locations.map((loc, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-800 dark:text-zinc-200 shadow-sm"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-800 dark:text-zinc-200 shadow-sm"
                   >
                     <MapPin className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                     <span>{loc}</span>
@@ -753,6 +772,8 @@ export default function ProfilePage() {
 
               <div className="flex items-center gap-2 mb-2">
                 <input
+                  id="custom-location-input"
+                  aria-label="Custom target location"
                   type="text"
                   value={newLocationInput}
                   onChange={(e) => setNewLocationInput(e.target.value)}
@@ -780,7 +801,7 @@ export default function ProfilePage() {
                     key={l}
                     type="button"
                     onClick={() => handleAddLocation(l)}
-                    className="text-[11px] font-mono px-2 py-0.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 shadow-sm"
+                    className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 shadow-sm"
                   >
                     + {l}
                   </button>
@@ -855,10 +876,12 @@ export default function ProfilePage() {
             {/* Salary Expectations */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
+                <label htmlFor="min-salary" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
                   Minimum Annual Salary (₹ INR)
                 </label>
                 <input
+                  id="min-salary"
+                  aria-label="Minimum Annual Salary in INR"
                   type="number"
                   step="100000"
                   value={minSalary}
@@ -871,10 +894,12 @@ export default function ProfilePage() {
               </div>
 
               <div>
-                <label className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
+                <label htmlFor="max-salary" className="block font-mono text-xs text-zinc-700 dark:text-zinc-400 mb-1">
                   Target / Maximum Salary (₹ INR)
                 </label>
                 <input
+                  id="max-salary"
+                  aria-label="Target or Maximum Annual Salary in INR"
                   type="number"
                   step="100000"
                   value={maxSalary}

@@ -77,6 +77,8 @@ export function HeroSearch({
           <div className="relative flex items-center rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm focus-within:border-zinc-400 dark:focus-within:border-zinc-600 focus-within:ring-1 focus-within:ring-zinc-400 dark:focus-within:ring-zinc-600 transition-all">
             <Search className="w-4 h-4 ml-4 text-zinc-400 flex-shrink-0" />
             <input
+              id="hero-search-input"
+              aria-label="Search by role, tech stack, or company"
               ref={inputRef}
               type="text"
               value={localQuery}
@@ -88,7 +90,7 @@ export function HeroSearch({
               className="w-full bg-transparent px-3 py-3 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none font-sans"
             />
             <div className="hidden sm:flex items-center gap-1.5 mr-3">
-              <kbd className="px-1.5 py-0.5 text-[10px] font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded">
+              <kbd className="px-1.5 py-0.5 text-[10px] font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md">
                 /
               </kbd>
             </div>

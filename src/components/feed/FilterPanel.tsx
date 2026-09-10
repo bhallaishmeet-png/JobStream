@@ -161,6 +161,8 @@ export function FilterPanel({
         {/* Custom Location input */}
         <form onSubmit={handleAddCustomLocation} className="flex gap-1.5">
           <input
+            id="custom-city-filter-input"
+            aria-label="Add custom city"
             type="text"
             placeholder="Add custom city..."
             value={customLocInput}
@@ -169,6 +171,8 @@ export function FilterPanel({
           />
           <button
             type="submit"
+            aria-label="Add custom city"
+            title="Add custom city"
             className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
           >
             <Plus className="w-3.5 h-3.5" />
@@ -312,6 +316,8 @@ export function FilterPanel({
 
         <form onSubmit={handleAddCustomSkill} className="flex gap-1.5">
           <input
+            id="custom-skill-filter-input"
+            aria-label="Add custom skill tag"
             type="text"
             placeholder="Add skill tag..."
             value={customSkillInput}
@@ -320,6 +326,8 @@ export function FilterPanel({
           />
           <button
             type="submit"
+            aria-label="Add custom skill tag"
+            title="Add custom skill tag"
             className="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
           >
             <Plus className="w-3.5 h-3.5" />
@@ -395,6 +403,8 @@ export function FilterPanel({
               <span className="font-mono font-bold text-zinc-900 dark:text-zinc-100">Filter Job Stream</span>
               <button
                 onClick={() => setIsMobileOpen(false)}
+                aria-label="Close filters"
+                title="Close filters"
                 className="p-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
               >
                 <X className="w-4 h-4" />

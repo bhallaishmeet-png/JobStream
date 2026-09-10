@@ -130,8 +130,10 @@ export default function AlertsPage() {
           </div>
 
           <div>
-            <label className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Alert Name</label>
+            <label htmlFor="alertName" className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Alert Name</label>
             <input
+              id="alertName"
+              aria-label="Alert Name"
               type="text"
               value={alertName}
               onChange={(e) => setAlertName(e.target.value)}
@@ -142,8 +144,10 @@ export default function AlertsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Target Location</label>
+              <label htmlFor="alertLocation" className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Target Location</label>
               <input
+                id="alertLocation"
+                aria-label="Target Location"
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
@@ -153,8 +157,10 @@ export default function AlertsPage() {
             </div>
 
             <div>
-              <label className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Experience Level</label>
+              <label htmlFor="alertExperience" className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Experience Level</label>
               <select
+                id="alertExperience"
+                aria-label="Experience Level"
                 value={experience}
                 onChange={(e) => setExperience(e.target.value)}
                 className="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg px-3 py-2 text-zinc-900 dark:text-zinc-200 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-700 font-mono"
@@ -169,8 +175,10 @@ export default function AlertsPage() {
           </div>
 
           <div>
-            <label className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Required Skills (comma separated)</label>
+            <label htmlFor="alertSkills" className="block text-zinc-700 dark:text-zinc-400 font-mono mb-1 font-semibold">Required Skills (comma separated)</label>
             <input
+              id="alertSkills"
+              aria-label="Required Skills"
               type="text"
               value={skills}
               onChange={(e) => setSkills(e.target.value)}
@@ -182,6 +190,7 @@ export default function AlertsPage() {
           <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center gap-6">
             <label className="flex items-center gap-2 cursor-pointer text-zinc-700 dark:text-zinc-300">
               <input
+                aria-label="Email notification"
                 type="checkbox"
                 checked={emailNotification}
                 onChange={(e) => setEmailNotification(e.target.checked)}
@@ -193,6 +202,7 @@ export default function AlertsPage() {
 
             <label className="flex items-center gap-2 cursor-pointer text-zinc-700 dark:text-zinc-300">
               <input
+                aria-label="Browser push notification"
                 type="checkbox"
                 checked={browserNotification}
                 onChange={(e) => setBrowserNotification(e.target.checked)}
