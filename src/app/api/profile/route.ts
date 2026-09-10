@@ -52,6 +52,7 @@ export async function GET() {
         preferredJobTypes: JSON.parse(p?.preferredJobTypes || "[]"),
         minSalary: p?.minSalary,
         preferredRoles: JSON.parse(p?.preferredRoles || "[]"),
+        preferredIndustries: JSON.parse(p?.preferredIndustries || "[]"),
         education: p?.education,
         bio: p?.bio,
       },
@@ -65,7 +66,21 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, skills, preferredLocations, preferredWorkModes, preferredJobTypes, experienceLevel, minSalary, preferredRoles, education, bio } = body;
+    const {
+      name,
+      email,
+      avatar,
+      skills,
+      preferredLocations,
+      preferredWorkModes,
+      preferredJobTypes,
+      experienceLevel,
+      minSalary,
+      preferredRoles,
+      preferredIndustries,
+      education,
+      bio,
+    } = body;
 
     let user = await db.user.findFirst({
       include: { profile: true },
@@ -75,12 +90,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    if (name || email) {
+    if (name || email || avatar !== undefined) {
       user = await db.user.update({
         where: { id: user.id },
         data: {
           name: name || user.name,
           email: email || user.email,
+          avatar: avatar !== undefined ? avatar : user.avatar,
         },
         include: { profile: true },
       });
@@ -96,6 +112,7 @@ export async function POST(request: NextRequest) {
         experienceLevel: experienceLevel || undefined,
         minSalary: minSalary !== undefined ? minSalary : undefined,
         preferredRoles: preferredRoles ? JSON.stringify(preferredRoles) : undefined,
+        preferredIndustries: preferredIndustries ? JSON.stringify(preferredIndustries) : undefined,
         education: education !== undefined ? education : undefined,
         bio: bio !== undefined ? bio : undefined,
       },
@@ -108,6 +125,7 @@ export async function POST(request: NextRequest) {
         experienceLevel: experienceLevel || "1-2",
         minSalary: minSalary || 1800000,
         preferredRoles: JSON.stringify(preferredRoles || []),
+        preferredIndustries: JSON.stringify(preferredIndustries || []),
         education,
         bio,
       },
@@ -115,6 +133,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar,
+      },
       profile: {
         id: updatedProfile.id,
         userId: user.id,
@@ -125,6 +149,7 @@ export async function POST(request: NextRequest) {
         preferredJobTypes: JSON.parse(updatedProfile.preferredJobTypes),
         minSalary: updatedProfile.minSalary,
         preferredRoles: JSON.parse(updatedProfile.preferredRoles),
+        preferredIndustries: JSON.parse(updatedProfile.preferredIndustries || "[]"),
         education: updatedProfile.education,
         bio: updatedProfile.bio,
       },
