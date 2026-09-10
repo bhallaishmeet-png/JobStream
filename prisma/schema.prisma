@@ -1,0 +1,210 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  name         String
+  role         String        @default("user") // "user" | "admin"
+  avatar       String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  profile      UserProfile?
+  savedJobs    SavedJob[]
+  alerts       JobAlert[]
+}
+
+model UserProfile {
+  id                 String   @id @default(uuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  preferredLocations String   @default("[]") // JSON string array: ["Remote", "Bangalore"]
+  preferredWorkModes String   @default("[]") // JSON string array: ["REMOTE", "HYBRID"]
+  experienceLevel    String   @default("0-2")
+  skills             String   @default("[]") // JSON string array: ["React", "TypeScript", "Python"]
+  preferredJobTypes  String   @default("[]") // JSON string array: ["FULL_TIME", "INTERNSHIP"]
+  minSalary          Int?
+  preferredIndustries String  @default("[]")
+  preferredRoles     String   @default("[]") // JSON string array: ["Frontend Developer", "AI Engineer"]
+  education          String?
+  bio                String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Company {
+  id        String   @id @default(uuid())
+  name      String
+  domain    String?
+  logoUrl   String?
+  verified  Boolean  @default(false)
+  website   String?
+  location  String?
+  jobs      Job[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model JobSource {
+  id               String       @id @default(uuid())
+  name             String       @unique
+  type             String       // "RSS" | "API" | "DEMO"
+  endpoint         String?
+  isEnabled        Boolean      @default(true)
+  status           String       @default("HEALTHY") // "HEALTHY" | "DELAYED" | "ERROR"
+  lastSyncAt       DateTime?
+  errorCount       Int          @default(0)
+  lastErrorMessage String?
+  jobs             Job[]
+  crawlRuns        CrawlRun[]
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+}
+
+model CanonicalJob {
+  id           String            @id @default(uuid())
+  title        String
+  companyName  String
+  normalizedKey String           @unique // e.g. "google::software-engineer::bangalore"
+  totalSources Int               @default(1)
+  primaryJobId String?
+  sources      JobSourceRecord[]
+  jobs         Job[]
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+}
+
+model Job {
+  id              String             @id @default(uuid())
+  canonicalJobId  String?
+  canonicalJob    CanonicalJob?      @relation(fields: [canonicalJobId], references: [id], onDelete: SetNull)
+  companyId       String?
+  company         Company?           @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  sourceId        String?
+  source          JobSource?         @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  
+  title           String
+  normalizedTitle String
+  companyName     String
+  location        String
+  city            String?
+  country         String?
+  workMode        String             @default("REMOTE") // "REMOTE" | "HYBRID" | "ON_SITE"
+  experienceLevel String             @default("0-1")    // "FRESHER" | "0-1" | "1-2" | "2-3" | "3-5" | "5-10" | "10+"
+  jobType         String             @default("FULL_TIME") // "FULL_TIME" | "PART_TIME" | "INTERNSHIP" | "CONTRACT" | "FREELANCE"
+  
+  minSalary       Int?
+  maxSalary       Int?
+  salaryCurrency  String             @default("INR")
+  salaryPeriod    String             @default("YEAR") // "YEAR" | "MONTH" | "HOUR"
+  
+  description     String
+  responsibilities String            @default("[]") // JSON string array
+  requirements    String             @default("[]") // JSON string array
+  benefits        String             @default("[]") // JSON string array
+  skills          String             @default("[]") // JSON string array
+  
+  status          String             @default("ACTIVE") // "ACTIVE" | "CLOSED" | "EXPIRED" | "REMOVED"
+  sourceName      String
+  sourceJobId     String?
+  canonicalUrl    String
+  applyUrl        String
+  isDemo          Boolean            @default(false)
+  
+  discoveredAt    DateTime           @default(now())
+  postedAt        DateTime           @default(now())
+  lastCheckedAt   DateTime           @default(now())
+  lastUpdatedAt   DateTime           @default(now())
+  freshnessScore  Int                @default(99)
+  aiSummary       String?
+  
+  history         JobStatusHistory[]
+  savedJobs       SavedJob[]
+  sourceRecords   JobSourceRecord[]
+
+  @@index([status])
+  @@index([postedAt])
+  @@index([location])
+  @@index([workMode])
+  @@index([jobType])
+  @@index([experienceLevel])
+}
+
+model JobSourceRecord {
+  id             String        @id @default(uuid())
+  canonicalJobId String?
+  canonicalJob   CanonicalJob? @relation(fields: [canonicalJobId], references: [id], onDelete: Cascade)
+  jobId          String?
+  job            Job?          @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  sourceId       String?
+  sourceName     String
+  originalUrl    String
+  rawData        String?       // JSON snippet
+  firstSeenAt    DateTime      @default(now())
+}
+
+model JobStatusHistory {
+  id             String   @id @default(uuid())
+  jobId          String
+  job            Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  previousStatus String
+  newStatus      String
+  reason         String?
+  changedAt      DateTime @default(now())
+}
+
+model SavedJob {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  status    String   @default("SAVED") // "SAVED" | "APPLIED" | "INTERVIEW" | "REJECTED" | "OFFER"
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, jobId])
+}
+
+model JobAlert {
+  id                  String    @id @default(uuid())
+  userId              String
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name                String
+  query               String?
+  filters             String    @default("{}") // JSON string: { location, experience, skills, jobType, workMode }
+  frequency           String    @default("REALTIME") // "REALTIME" | "DAILY" | "WEEKLY"
+  emailNotification   Boolean   @default(true)
+  browserNotification Boolean   @default(true)
+  isEnabled           Boolean   @default(true)
+  lastTriggeredAt     DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model CrawlRun {
+  id             String     @id @default(uuid())
+  sourceId       String
+  source         JobSource  @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  startedAt      DateTime   @default(now())
+  completedAt    DateTime?
+  status         String     @default("RUNNING") // "RUNNING" | "SUCCESS" | "FAILED"
+  jobsDiscovered Int        @default(0)
+  jobsUpdated    Int        @default(0)
+  jobsClosed     Int        @default(0)
+  errorMessage   String?
+}
+
+model SystemMetric {
+  id         String   @id @default(uuid())
+  metricKey  String   @unique
+  metricValue String
+  updatedAt  DateTime @updatedAt
+}
