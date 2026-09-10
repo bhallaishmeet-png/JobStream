@@ -1,4 +1,4 @@
-# JOBSTREAM — The Internet’s Live Job Feed
+# JOBSTREAM: The Internet’s Live Job Feed
 
 > **"Don't search for jobs. Let the jobs find you."**
 
@@ -43,7 +43,7 @@ The project uses environment variables for database connections, application URL
 ## Key Highlights
 
 1. **Real-Time Live Feed Engine**:
-   - Dynamic countdown ticker (`LIVE - Last updated 14s ago - Next update in 46s`).
+   - Dynamic countdown ticker (`LIVE · Last updated 14s ago · Next update in 46s`).
    - Incremental 60-second polling and feed diffing: detects newly discovered jobs, status closures, and listing updates without reloading the page.
    - Non-intrusive floating update notification pill: `X new jobs found | Y jobs closed | Z jobs updated` with smooth prepend.
 

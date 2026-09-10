@@ -178,11 +178,11 @@ export default function ProfilePage() {
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-zinc-100"
               >
                 <option value="FRESHER">Fresher / Graduate</option>
-                <option value="0-1">0–1 years</option>
-                <option value="1-2">1–2 years</option>
-                <option value="2-3">2–3 years</option>
-                <option value="3-5">3–5 years</option>
-                <option value="5-10">5–10 years</option>
+                <option value="0-1">0 to 1 years</option>
+                <option value="1-2">1 to 2 years</option>
+                <option value="2-3">2 to 3 years</option>
+                <option value="3-5">3 to 5 years</option>
+                <option value="5-10">5 to 10 years</option>
                 <option value="10+">10+ years</option>
               </select>
             </div>

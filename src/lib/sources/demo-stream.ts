@@ -176,7 +176,7 @@ const DEMO_JOB_POOL = [
   {
     companyName: "Stripe",
     title: "Software Engineer (Global Payouts)",
-    location: "Remote - India",
+    location: "Remote · India",
     workMode: "REMOTE" as const,
     experienceLevel: "2-3" as const,
     jobType: "FULL_TIME" as const,

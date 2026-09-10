@@ -38,7 +38,7 @@ export function formatSalary(
     if (minSalary === maxSalary) {
       return `${symbol}${formatAmount(minSalary)}`;
     }
-    return `${symbol}${formatAmount(minSalary)} – ${symbol}${formatAmount(maxSalary)}`;
+    return `${symbol}${formatAmount(minSalary)} to ${symbol}${formatAmount(maxSalary)}`;
   } else if (minSalary) {
     return `${symbol}${formatAmount(minSalary)}+`;
   } else if (maxSalary) {

@@ -161,10 +161,10 @@ export default function AlertsPage() {
                 className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-zinc-200"
               >
                 <option value="FRESHER">Fresher</option>
-                <option value="0-1">0–1 years</option>
-                <option value="1-2">1–2 years</option>
-                <option value="2-3">2–3 years</option>
-                <option value="3-5">3–5 years</option>
+                <option value="0-1">0 to 1 years</option>
+                <option value="1-2">1 to 2 years</option>
+                <option value="2-3">2 to 3 years</option>
+                <option value="3-5">3 to 5 years</option>
               </select>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { MobileNav } from "@/components/layout/MobileNav";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "JOBSTREAM — The Internet's Live Job Feed",
+  title: "JOBSTREAM: The Internet's Live Job Feed",
   description: "Don't search for jobs. Let the jobs find you. Real-time job discovery and canonical aggregation.",
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M13 2L3 14H12L11 22L21 10H12L13 2Z'/></svg>",
