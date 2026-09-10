@@ -26,7 +26,7 @@ export default function ExplorePage() {
     { name: "Swiggy", location: "Bangalore", hiringCount: "4 active roles", badge: "Logistics ML" },
     { name: "CRED", location: "Bangalore", hiringCount: "2 active roles", badge: "Banking Core" },
     { name: "Postman", location: "Remote", hiringCount: "2 active roles", badge: "Developer Tooling" },
-    { name: "Stripe", location: "Remote - India", hiringCount: "3 active roles", badge: "Global Payments" },
+    { name: "Stripe", location: "Remote · India", hiringCount: "3 active roles", badge: "Global Payments" },
     { name: "Zomato / Blinkit", location: "Gurgaon", hiringCount: "2 active roles", badge: "Quick Commerce" },
   ];
 

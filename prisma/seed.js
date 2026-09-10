@@ -153,7 +153,7 @@ async function seed() {
     {
       companyName: "Postman",
       title: "Full Stack Developer (API Client)",
-      location: "Remote - India",
+      location: "Remote · India",
       workMode: "REMOTE",
       experienceLevel: "1-2",
       jobType: "FULL_TIME",
@@ -205,7 +205,7 @@ async function seed() {
     {
       companyName: "Stripe",
       title: "Software Engineer (Global Payouts)",
-      location: "Remote - India",
+      location: "Remote · India",
       workMode: "REMOTE",
       experienceLevel: "2-3",
       jobType: "FULL_TIME",

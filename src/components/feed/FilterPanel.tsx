@@ -41,11 +41,11 @@ const PRESET_LOCATIONS = [
 
 const EXPERIENCE_LEVELS = [
   { id: "FRESHER", label: "Fresher" },
-  { id: "0-1", label: "0–1 years" },
-  { id: "1-2", label: "1–2 years" },
-  { id: "2-3", label: "2–3 years" },
-  { id: "3-5", label: "3–5 years" },
-  { id: "5-10", label: "5–10 years" },
+  { id: "0-1", label: "0 to 1 years" },
+  { id: "1-2", label: "1 to 2 years" },
+  { id: "2-3", label: "2 to 3 years" },
+  { id: "3-5", label: "3 to 5 years" },
+  { id: "5-10", label: "5 to 10 years" },
   { id: "10+", label: "10+ years" },
 ];
 
