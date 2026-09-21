@@ -24,17 +24,12 @@ export class HeuristicAIProvider implements AIProvider {
   }
 }
 
-// Extensible LLM Provider implementation (e.g. Gemini / OpenAI)
+// Extensible LLM Provider implementation
 export class LLMProvider implements AIProvider {
-  name = "Cloud LLM (Gemini/OpenAI)";
-  private apiKey?: string;
-
-  constructor() {
-    this.apiKey = process.env.AI_API_KEY || process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY;
-  }
+  name = "AI Engine";
 
   isAvailable(): boolean {
-    return Boolean(this.apiKey);
+    return false;
   }
 
   async extractSkills(text: string): Promise<string[]> {

@@ -23,15 +23,10 @@ The project uses environment variables for database connections, application URL
      ```
 
 2. **Configure your values:**
-   Open `.env.local` and set your desired database connection:
-   - For local development, the default SQLite configuration works out-of-the-box:
-     ```env
-     DATABASE_URL="file:./dev.db"
-     ```
-   - For PostgreSQL/Supabase production:
-     ```env
-     DATABASE_URL="postgresql://postgres:[PASSWORD]@[HOST]:5432/[DB_NAME]?sslmode=require"
-     ```
+   Open `.env.local` and configure your local database:
+   ```env
+   DATABASE_URL="file:./dev.db"
+   ```
 
 3. **Security Hygiene Rules:**
    - **Never commit `.env`, `.env.local`, or any `*.env` files to git.** (Enforced via `.gitignore`).
